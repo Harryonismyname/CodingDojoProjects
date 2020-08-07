@@ -1,0 +1,21 @@
+h1
+{
+    text-align: center;
+}
+p
+{
+    background-color: aliceblue;
+}
+#red
+{
+    color: red;
+}
+div
+{
+    width: 200px;
+    height: 200px;
+}
+.maroon
+{
+    background-color: maroon;
+}
