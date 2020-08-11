@@ -1,0 +1,144 @@
+*
+{
+    font-family: sans-serif;
+}
+#Wrapper
+{
+    width: 1080px;
+
+}
+#Content
+{
+    background-image: radial-gradient(rgb(117, 102, 117), rgb(100, 60, 87));
+    padding: 20px;
+}
+h3
+{
+    background-image: linear-gradient(lightGrey,grey,lightGrey);
+    color: white;
+    margin: 0px;
+    padding: 10px;
+}
+/*--Header--*/
+#Header
+{
+    background-color: lightgray;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#Name, #Title
+{
+    display: inline-block;
+    margin: 10px;
+}
+#Name
+{
+    font-family: "Comic Sans MS";
+}
+#Title
+{
+    font-family: sans-serif;
+    margin-left: 400px;
+}
+/*--Bio--*/
+#portrait, #about
+{
+    display: inline-block;
+    margin: 10px;
+    vertical-align: top;
+    background-color: white;
+}
+#portrait
+{
+    height: 310px;
+    width: 466px;
+    border: 10px solid lightGrey;
+}
+#about
+{
+    height: 330px;
+    width: 486px;
+    background-image: linear-gradient(to right, white, lavender,lavender);
+}
+#aboutContent
+{
+    font-size: 12pt;
+    font-family: sans-serif;
+    padding: 10px;
+}
+/*--Projects--*/
+#Projects
+{
+    width: 1040px;
+}
+.project, .projectTopper, .projectHeaderImage
+{
+    width: 310px;
+    vertical-align: top;
+}
+.projectTopper
+{
+    height: 430px;
+}
+.projectTopper>p
+{
+    padding: 10px;
+    text-align: justify;
+}
+.project
+{
+    display: inline-block;
+    margin: 10px;
+    background-image: linear-gradient(to right,white, lavender );
+}
+.technologies
+{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+.techUsed
+{
+    padding: 10px;
+}
+.techUsed>button
+{
+    padding: 5px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    transition-duration: 0.4s;
+    background-color: #577a5c;
+    color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.514);
+}
+.techUsed>button:hover
+{
+    transition-duration: 0.4s;
+    color: #577a5c;
+    background-color: #ffffff;
+    border: 2px solid #577a5c;
+}
+#Footer
+{
+    vertical-align: top;
+    margin: 0px;
+    background-color: lightgray;
+    text-align: center;
+    padding: 5px;
+}
+#Footer>p
+{
+    margin-top: 0px;
+}
+#Footer>a
+{
+    font-style: italic;
+}
+#Footer>img
+{
+    vertical-align: middle;
+    height: 25px;
+    width: 25px;
+}
