@@ -2,16 +2,6 @@
 {
     font-family: sans-serif;
 }
-#Wrapper
-{
-    width: 1080px;
-
-}
-#Content
-{
-    background-image: radial-gradient(rgb(117, 102, 117), rgb(100, 60, 87));
-    padding: 20px;
-}
 h3
 {
     background-image: linear-gradient(lightGrey,grey,lightGrey);
@@ -19,36 +9,53 @@ h3
     margin: 0px;
     padding: 10px;
 }
-/*--Header--*/
-#Header
+
+#Wrapper
 {
+    width: 1080px;
     background-color: lightgray;
-    padding-left: 20px;
-    padding-right: 20px;
 }
-#Name, #Title
+#Wrapper h1, h2
 {
     display: inline-block;
     margin: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
-#Name
+#Wrapper h1
 {
     font-family: "Comic Sans MS";
 }
-#Title
+#Wrapper h2
 {
     font-family: sans-serif;
-    margin-left: 400px;
+    margin-left: 360px;
 }
-/*--Bio--*/
-#portrait, #about
+.socialImg, #Wrapper>p
+{
+    text-align: center;
+    padding-top: 5px;
+}
+.socialImg
+{
+    vertical-align: middle;
+    height: 25px;
+    width: 25px;
+}
+
+#Content
+{
+    background-image: radial-gradient(rgb(117, 102, 117), rgb(100, 60, 87));
+    padding: 20px;
+}
+#Content>img, #about
 {
     display: inline-block;
     margin: 10px;
     vertical-align: top;
-    background-color: white;
 }
-#portrait
+
+#Content>img
 {
     height: 310px;
     width: 466px;
@@ -60,36 +67,30 @@ h3
     width: 486px;
     background-image: linear-gradient(to right, white, lavender,lavender);
 }
-#aboutContent
+#about p, a
 {
     font-size: 12pt;
-    font-family: sans-serif;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
-/*--Projects--*/
-#Projects
-{
-    width: 1040px;
-}
-.project, .projectTopper, .projectHeaderImage
+.project, .projectHeaderImage
 {
     width: 310px;
     vertical-align: top;
-}
-.projectTopper
-{
-    height: 430px;
-}
-.projectTopper>p
-{
-    padding: 10px;
-    text-align: justify;
 }
 .project
 {
     display: inline-block;
     margin: 10px;
     background-image: linear-gradient(to right,white, lavender );
+    height: 615px;
+}
+.project>p
+{
+    margin: 0px;
+    padding: 10px;
+    text-align: justify;
+    height: 180px;
 }
 .technologies
 {
@@ -97,11 +98,7 @@ h3
     height: 40px;
     padding: 5px;
 }
-.techUsed
-{
-    padding: 10px;
-}
-.techUsed>button
+.project button
 {
     padding: 5px;
     display: block;
@@ -113,32 +110,10 @@ h3
     border-radius: 12px;
     box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.514);
 }
-.techUsed>button:hover
+.project>button:hover
 {
     transition-duration: 0.4s;
     color: #577a5c;
     background-color: #ffffff;
     border: 2px solid #577a5c;
-}
-#Footer
-{
-    vertical-align: top;
-    margin: 0px;
-    background-color: lightgray;
-    text-align: center;
-    padding: 5px;
-}
-#Footer>p
-{
-    margin-top: 0px;
-}
-#Footer>a
-{
-    font-style: italic;
-}
-#Footer>img
-{
-    vertical-align: middle;
-    height: 25px;
-    width: 25px;
 }
