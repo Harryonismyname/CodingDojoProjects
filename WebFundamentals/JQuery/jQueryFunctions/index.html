@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <script>
+            $(document).ready( function()
+            {
+                $('#Hide').click(function()
+                {
+                    $('#hideMe').hide()
+                })
+                $('#Show').click(function()
+                {
+                    $('#hideMe').show()
+                })
+                $('#Toggle').click(function()
+                {
+                    $('#toggleMe').toggle()
+                })
+                $('#SlideUp').click(function()
+                {
+                    $('#slideMe').slideUp()
+                })
+                $('#SlideDown').click(function()
+                {
+                    $('#slideMe').slideDown()
+                })
+                $('#sToggle').click(function()
+                {
+                    $('#sTogMe').slideToggle()
+                })
+                $('#FadeOut').click(function()
+                {
+                    $('#fadeMe').fadeOut()
+                })
+                $('#FadeIn').click(function()
+                {
+                    $('#fadeMe').fadeIn()
+                })
+                $('#addClass').click(function()
+                {
+                    $('#classMe').addClass('green')
+                })
+                $('#removeClass').click(function()
+                {
+                    $('#classMe').removeClass('green')
+                })
+                $('#before').click(function()
+                {
+                    $('#BAMe').before('<li>Look I am a list item that has appeared before the other one!</li>')
+                })
+                $('#after').click(function()
+                {
+                    $('#BAMe').after('<li>Look I am a list item that has appeared after the other one!</li>')
+                })
+                $('#html').click(function()
+                {
+                    var temp = $('#appendMe').html()
+                    $('#appendMe').after(`<p id="appendMe">${temp}</p>`)
+                })
+                $('#append').click(function()
+                {
+                    $('#appendMe').append('O')
+                })
+                $('#attr').click(function()
+                {
+                    var temp = $('#attrMe').attr('id')
+                    $('#attrMe').append(` Oh, That's what this does! The attr fetched the item's id which is: ${temp}`)
+                })
+                $('#return').click(function()
+                {
+                    var temp = $('#val').val()
+                    $('#changeMe').text(temp)
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div class="sectionBox">
+            <h1>Click, Hide and Show Methods</h1>
+            <button id="Hide">Hide</button>
+            <button id="Show">Show</button>
+            <p id="hideMe">Click the button to hide and show this text</p>
+        </div>
+        <div class="sectionBox">
+            <h1>Toggle Method</h1>
+            <button id="Toggle">Toggle</button>
+            <p id="toggleMe">Click the button to toggle this text's visibility</p>
+        </div>
+        <div class="sectionBox">
+            <h1> Slide Down and Slide up Methods</h1>
+            <button id="SlideUp">Slide Up</button>
+            <button id="SlideDown">Slide Down</button>
+            <p id="slideMe">Click the button to toggle the visibility of this text</p>
+        </div>
+        <div class="sectionBox">
+            <h1>Slide Toggle Method</h1>
+            <button id="sToggle">Slide Toggle</button>
+            <p id="sTogMe">This only takes one button for me to slide up and down</p>
+        </div>
+        <div class="sectionBox">
+            <h1>Fade in and Fade out Methods</h1>
+            <button id="FadeOut">Fade Out</button>
+            <button id="FadeIn">Fade In</button>
+            <p id="fadeMe">This text takes two buttons to make me fade in or out</p>
+        </div>
+        <div class="sectionBox">
+            <h1>add class Method</h1>
+            <button id="addClass">Add Class</button>
+            <button id="removeClass">Remove Class</button>
+            <p id="classMe">Click the button to add the .green class to me</p>
+        </div>
+        <div class="sectionBox">
+            <h1>Before and after Methods</h1>
+            <button id="before">Before</button>
+            <button id="after">After</button>
+            <ul>
+                <li id="BAMe">I am a list item! Click the buttons to add to my list</li>
+            </ul>
+        </div>
+        <div class="sectionBox">
+            <h1>append and HTML Methods</h1>
+            <button id="html">HTML</button>
+            <button id="append">Append</button>
+            <p id="appendMe">Click the button to make this no more intense: NO</p>
+        </div>
+        <div class="sectionBox">
+            <h1>attr Method</h1>
+            <button id="attr">Attr</button>
+            <p id="attrMe">I don't know what this will do...</p>
+        </div>
+        <div class="sectionBox">
+            <h1>Val and Text Methods</h1>
+            <p id="changeMe">When you click the button I will change to whatever you put in the text box</p>
+            <input type="text" id="val">
+            <button id="return">Return Input</button>
+        </div>
+    </body>
+</html>

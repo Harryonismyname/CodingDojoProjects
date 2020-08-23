@@ -1,0 +1,11 @@
+.green
+{
+    background-color: green;
+    color: hotpink;
+}
+.sectionBox
+{
+    border: 2px solid black;
+    display: inline-block;
+    padding: 10px;
+}
