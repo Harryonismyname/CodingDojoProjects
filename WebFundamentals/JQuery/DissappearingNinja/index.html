@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <script>
+            $(document).ready(function()
+            {
+                $('img.dissappear').click(function()
+                {
+                    $(this).fadeOut();
+                })
+                $('button').click(function()
+                {
+                    $('.dissappear').fadeIn()
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <h1>jQuery - Dissappearing Ninja</h1>
+        <img src="img/Berg_Remastered_Resized.png" alt="Berg" class="dissappear">
+        <img src="img/Draught_portrait.png" alt="Draught" class="dissappear">
+        <img src="img/Eleina_resize.png" alt="Eleina" class="dissappear">
+        <img src="img/manakete_2.png" alt="Mina" class="dissappear">
+        <img src="img/Mike.png" alt="Mike" class="dissappear">
+        <img src="img/Pen_Remastered2_Resize.png" alt="Pen" class="dissappear">
+        <img src="img/Profile_12.png" alt="Signus" class="dissappear">
+        <img src="img/wip_archer_resize2.png" alt="Gabe" class="dissappear">
+        <button>Restore</button>
+    </body>
+</html>
