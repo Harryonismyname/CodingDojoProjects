@@ -1,2 +1,4 @@
 my_environments/
 firstDjango/
+settings.py
+__pycache__/
