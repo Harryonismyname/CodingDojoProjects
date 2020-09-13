@@ -17,4 +17,4 @@ def edit(request, number):
     return HttpResponse(f"placeholder to edit blog {number}")
 
 def delete(request, number):
-    return redirect("/index")
+    return redirect("/")
