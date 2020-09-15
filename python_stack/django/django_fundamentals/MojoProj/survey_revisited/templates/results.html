@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/resultStyle.css' %}">
+    </head>
+    <body>
+        <div id="wrapper">
+            <h2>Submitted Info</h2>
+            <ul>
+                <li><p>Name:</p></li>
+                <li><p>Dojo Location:</p></li>
+                <li><p>Favorite Language:</p></li>
+                <li><p>Comment:</p></li>
+            </ul>
+            <ul>
+                <li><p class="info">{{request.session.name}}</p></li>
+                <li><p class="info">{{request.session.location}}</p></li>
+                <li><p class="info">{{request.session.favlang}}</p></li>
+                <li><p class="info">{{request.session.comment}}</p></li>
+            </ul>
+            <form action="/" id="return">
+                <button formmethod="GET" form="return">GO BACK</button>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        {% load static %}
+        <link rel="stylesheet" href="../static/css/style.css">
+        <!--{% static 'css/style.css' %}-->
+    </head>
+    <body>
+        <div id="wrapper">
+            <ul>
+                <li><p>Your Name:</p></li>
+                <li><p>Dojo Location:</p></li>
+                <li><p>Favorite Language:</p></li>
+                <li><p>Comment (optional):</p></li>
+            </ul>
+            <form id="dojoform" action="/" method="POST">
+                {% csrf_token %}
+                <ul>
+                    <li><input name="name" type="text"></li>
+                    <li>            
+                        <select name="location" id="location">
+                            <option value="San Jose">San Jose</option>
+                            <option value="Berkely">Berkely</option>
+                            <option value="Boise">Boise</option>
+                            <option value="Chicago">Chicago</option>
+                            <option value="Dallas">Dallas</option>
+                            <option value="Los Angeles">Los Angeles</option>
+                            <option value="Orange County">Orange County</option>
+                            <option value="Seattle">Seattle</option>
+                            <option value="Tulsa">Tulsa</option>s
+                            <option value="Tysons Corner">Tysons Corner</option>
+                            <option value="Online">Online</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select name="favlang" id="favlang">
+                            <option value="Python">Python</option>
+                            <option value="Ruby">Ruby</option>
+                            <option value="Java">Java</option>
+                            <option value="C">C</option>
+                        </select>
+                    </li>
+                    <li>
+                        <textarea name="comment" id="comment" cols="60" rows="10"></textarea>
+                    </li>
+                </ul>
+            </form>
+            <button type="submit" form="dojoform" id="BUTTON">Button</button>
+        </div>
+    </body>
+</html>

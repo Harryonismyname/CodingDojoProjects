@@ -5,17 +5,14 @@ def index(request):
     if request.method == "GET":
         return render(request, 'index.html')
     if request.method == "POST":
-        contexts ={
-        'name': request.POST['name'],
-        'location': request.POST['location'],
-        'favlang':request.POST['favlang'],
-        'comment': request.POST['comment']
-        }
-        return render(request, 'results.html', contexts)
+        request.session['name'] = request.POST['name']
+        request.session['location'] = request.POST['location']
+        request.session['favlang'] = request.POST['favlang']
+        request.session['comment'] = request.POST['comment']
         return redirect('/results')
 def results(request):
     print(request.method)
     if request.method == "POST":
-        pass
+        return redirect("/")
     if request.method == "GET":
-        redirect("/")
+        return render(request, 'results.html')
