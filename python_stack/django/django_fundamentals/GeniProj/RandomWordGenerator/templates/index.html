@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <div id="wrapper">
+            <p>Random Word (attempt #{{ request.session.attempt_num }})</p>
+            <h1>{{ request.session.rando_word }}</h1>
+            <form action="/submit">
+                <button type="submit">Generate</button>
+            </form>
+            <form action="/reset">
+            <button type="submit">reset</button>
+            </form>
+        </div>
+    </body>
 </html>
