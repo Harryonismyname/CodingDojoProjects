@@ -1,0 +1,53 @@
+#wrapper
+{
+    padding: 20px;
+    width: 920px;
+}
+#GoldTracker
+{
+    list-style-type: none;
+    padding: 0%;
+}
+#GoldTracker li
+{
+    display: inline-block;
+}
+#tally
+{
+    border: 1px solid black;
+    padding-left: 10px;
+}
+
+#activities
+{
+    list-style-type: none;
+    padding: 0%;
+}
+.unit
+{
+    vertical-align: top;
+    width: 175px;
+    height: 150px;
+    display: inline-block;
+    margin: 20px;
+    margin-right: 0%;
+    text-align: center;
+    border: 1px solid black;
+    padding: 15px;
+}
+#terminal
+{
+    list-style-type: none;
+    border: 2px solid black;
+    height: 150px;
+    width: 905px;
+    padding-left: 10px;
+    margin-left: 0%;
+    margin-right: 0%;
+    overflow-y: auto;
+}
+#terminal p
+{
+    margin: 2px;
+}
+
