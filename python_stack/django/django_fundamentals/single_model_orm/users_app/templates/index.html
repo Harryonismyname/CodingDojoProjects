@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <table id="allUsers">
+                <caption><h1>All the Users</h1></caption>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                </tr>
+                {% for users in all_users %}
+                    <tr>
+                        <td>{{ users.id }}</td>
+                        <td>{{ users.first_name }} {{ users.last_name }}</td>
+                        <td>{{ users.email_address }}</td>
+                        <td>{{ users.age }}</td>
+                    </tr>
+                {% endfor %}
+                
+            </table>
+            <form action="/addUser" name="addUser" method="POST">
+                {% csrf_token %}
+                <table id="userForm">
+                    <caption><h1>Add a User</h1></caption>
+                    <tr>
+                        <td><label form="addUser">First Name</label></td>
+                        <td><input type="text" name="first_name"></td>
+                        <td></td>
+                        <td><label form="addUser">Last Name</label></td>
+                        <td><input type="text" name="last_name"></td>
+                    </tr>
+                    <tr>
+                        <td><label form="addUser">Email</label></td>
+                        <td><input type="text" name="email_address"></td>
+                        <td></td>
+                        <td><label form="addUser">Age</label></td>
+                        <td><input type="text" name="age"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><button type="submit">Add</button></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
