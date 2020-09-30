@@ -1,0 +1,36 @@
+a
+{
+    display: block;
+    text-align: right;
+}
+h1
+{
+    padding-left: 15%;
+}
+#submissionForm
+{
+    padding-left: 15%;
+}
+#submissionForm label
+{
+    text-align: left;
+}
+#submissionForm ul
+{
+    padding-left: 0%;
+    list-style: none;
+}
+#Title
+{
+    display: block;
+    width: 50%;
+}
+.network_date
+{
+    display: inline-block;
+    margin-right: 5%;
+}
+button
+{
+    margin-left: 20%;
+}

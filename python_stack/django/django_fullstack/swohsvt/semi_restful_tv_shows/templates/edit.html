@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit Show {{id}}</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <div id="wrapper">
+            <a href="/shows">Go Back</a>
+            <h1>Edit Show {{id}}</h1>
+            <form action="/shows/{{id}}/update" name="update" method="POST" id="submissionForm">
+                {% csrf_token %}
+                <ul>
+                    <li>
+                        <label for="Title">Title</label>
+                    </li>
+                    <li>
+                        <input type="text" name="Title" value="{{show.title}}">
+                    </li>
+                    <li class="network_date">
+                        <ul>
+                            <li><label for="Network">Network</label></li>
+                            <li><input type="text" name="Network" value="{{show.network}}"></li>
+                        </ul>
+                    </li>
+                    <li class="network_date">
+                        <ul>
+                            <li><label for="Release Date">Release Date:</label></li>
+                            <li><input type="date" name="Release Date" value="{{release_date}}"></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li><label for="Description">Description</label></li>
+                            <li><textarea name="Description" cols="70" rows="10">{{show.description}}</textarea></li>
+                        </ul>
+                    </li>
+                </ul>
+                <button type="submit">Update</button>
+        </form>
+        </div>
+
+
+
+
+
+        
+        <a href="/shows/{{id}}">Go to Show</a>
+    </body>
+</html>

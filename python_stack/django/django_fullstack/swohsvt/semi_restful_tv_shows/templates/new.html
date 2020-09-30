@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New Show</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <div id="wrapper">
+            <a href="/shows">Go Back</a>
+            <h1>Add a New Show</h1>
+            <form action="/shows/new/create" name="New Show" method="POST" id="submissionForm">
+                {% csrf_token %}
+                <ul>
+                    <li>
+                        <label for="Title">Title</label>
+                    </li>
+                    <li>
+                        <input type="text" name="Title" id="Title">
+                    </li>                
+                    <li class="network_date">
+                        <ul>
+                            <li><label for="Network">Network</label></li>
+                            <li><input type="text" name="Network" id="Network"></li>
+                        </ul>
+                    </li>
+                    <li class="network_date">
+                        <ul>
+                            <li><label for="Release Date">Release Date</label></li>
+                            <li><input type="date" name="Release Date" id="Release Date"></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li>
+                                <label for="Description">Description</label>
+                            </li>
+                            <li><textarea name="Description" id="Description" cols="70" rows="10"></textarea></li>
+                        </ul>
+                        
+                        
+                    </li>
+                </ul>
+                <button type="submit">Submit</button>
+            </form>    
+        </div>
+    </body>
+</html>
