@@ -11,6 +11,13 @@
         <div id="wrapper">
             <a href="/shows">Go Back</a>
             <h1>Add a New Show</h1>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
             <form action="/shows/new/create" name="New Show" method="POST" id="submissionForm">
                 {% csrf_token %}
                 <ul>
