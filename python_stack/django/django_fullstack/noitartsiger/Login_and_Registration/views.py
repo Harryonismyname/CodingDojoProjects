@@ -17,7 +17,7 @@ def index(request):
     return render(request, 'index.html')
 
 def create_user(request):
-    if request.POST:
+    if request.method == 'POST':
         errors= User.objects.user_validator(request.POST)
         if error_report(request, errors):
             return redirect('/')
@@ -30,9 +30,8 @@ def create_user(request):
     return redirect('/')
 
 def login(request):
-    if request.POST:
+    if request.method == 'POST':
         user = User.objects.filter(email=request.POST['username'])
-        print(user)
         if user:
             logged_user = user[0]
             if bcrypt.checkpw(request.POST['pword'].encode(), logged_user.password.encode()):
