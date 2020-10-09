@@ -44,13 +44,14 @@ def login(request):
     return redirect('/')
 
 def mainscreen(request):
-    if request.session:
+    if 'current_user' not in request.session:
+        messages.error(request, 'You must be logged in or register!')
+        return redirect('/')
+    else:
         context={
             'user': User.objects.filter(id=request.session['current_user'])
         }
         return render(request, 'mainscreen.html', context)
-    else:
-        return redirect('/')
 
 def logout(request):
     request.session.flush()
