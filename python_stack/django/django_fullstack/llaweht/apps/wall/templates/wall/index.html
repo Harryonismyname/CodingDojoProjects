@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>Homescreen</title>
+    </head>
+    <body>
+        <ul id="navbar">
+            <li id="title"><h3>CodingDojo Wall</h3></li>
+            <li><p>Welcome {{user.first_name}}</p></li>
+            <li><a href="/logout">Log Out</a></li>
+        </ul>
+        <form action="/user/home/message" method="POST">
+            {% csrf_token %}
+            <label for="textbox"><h5>Post a message</h5></label>
+            <textarea name="textbox" id="textbox" cols="50" rows="3"></textarea>
+            <button type="submit">Post a message</button>
+        </form>
+        <ul>
+            {% for post in posts %}
+                <li><h6>{{ post.user.first_name }} {{ post.user.last_name }} - {{ post.created_at }}</h6></li>
+                <ul>
+                    <li>{{post.message}}</li>
+                    <ul>
+                        {% for comment in comments %}
+                        {% if comment.message == post %}
+                        <li><h6>{{ comment.user.first_name }} {{ comment.user.last_name }} - {{ comment.created_at }}</h6></li>
+                        <li>{{ comment.comment }}</li>
+                        {% endif %}
+                        {% endfor %}
+                        <ul>
+                            <form action="/user/home/comment" method="POST">
+                                {% csrf_token %}
+                                <label for="comment"><h6>Post a comment</h6></label>
+                                <textarea name="comment" id="comment" cols="40" rows="2"></textarea>
+                                <input type="hidden" name="post_id" value="{{ post.id }}">
+                                <button type="submit">Post a comment</button>
+                            </form>
+                        </ul>
+                    </ul>
+                </ul>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
