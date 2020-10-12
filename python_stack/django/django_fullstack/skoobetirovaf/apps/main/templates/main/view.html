@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        
+    </head>
+    <body>
+        <div id="wrapper">
+            <ul id="Header">
+                <li><h1>Welcome, {{ user.first_name }}!</h1></li>
+                <li><a href="/user/books">Go back</a></li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+            <div id="container">
+                <div class="row">
+                    <div class="col-sm">
+                        {% if book.uploaded_by == user %}{% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{message}}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        <table>
+                            <form action="/user/books/{{ book.id }}/update" method="POST">
+                                {% csrf_token %}
+                            <tr>
+                                <td colspan="2">
+                                    <input type="text" name="title" id="title" value="{{book.title}}">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    Added by: {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    Added on: {{ book.created_at }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Last updated on: {{ book.updated_at }}</td>
+                            </tr>
+                            <tr>
+                                <td>Description:</td>
+                                <td><textarea name="description" id="description" cols="20" rows="4">{{ book.desc }}</textarea></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button type="submit">Update</button>
+                            </form>
+                                </td>
+                                <td>
+                                    <form action="/user/books/{{book.id}}/delete" method="POST">
+                                        {% csrf_token %}
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                        {% endif %}
+                        {% if book.uploaded_by != user %}
+                        <h2>{{ book.title }}</h2>
+                        <p>Added by: {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}}</p>
+                        <p>Added on: {{ book.created_at }}</p>
+                        <p>Last updated on: {{ book.updated_at }}</p>
+                        <p>Description: {{ book.desc }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm">
+                        <h1>Users Who Like This Book:</h1>
+                        <ul>
+                            {% for users in book.users_who_like.all %}
+                            <li>{{ users.first_name }} {{ users.last_name }}{% if book in user.liked_books.all and users.id == user.id %} <a href="/user/books/{{book.id}}/unlike">Un-Favorite</a>{% endif %}</li>
+                            {% endfor %}
+                        </ul>
+                        {% if book not in user.liked_books.all %}
+                        <form action="/user/books/{{ book.id }}/favorite" method="POST">
+                            {% csrf_token %}
+                            <button type="submit">Add to Favorites</button>
+                        </form>
+                        {% endif %}
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

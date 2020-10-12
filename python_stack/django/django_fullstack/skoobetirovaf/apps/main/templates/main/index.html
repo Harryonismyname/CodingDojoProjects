@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="container">
+                <ul id="Header">
+                    <li><h1>Welcome, {{ user.first_name }}!</h1></li>
+                    <li><a href="/logout">Log Out</a></li>
+                </ul>
+                <div class="row">
+                    <div class="col-md">
+                        <h2>Add a Favorite Book</h2>
+                        {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{message}}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        <table>
+                            <form action="/user/books/create" method="POST">
+                                {% csrf_token %}
+                                <tr>
+                                    <td><label for="title">Title</label></td>
+                                    <td><textarea name="title" id="title" cols="20" rows="2"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="description">Description</label></td>
+                                    <td><textarea name="description" id="description" cols="20" rows="4"></textarea></td>
+                                </tr>
+                                <tr id="add_button">
+                                    <td colspan="2"><button type="submit">Add</button></td>
+                                </tr>
+                            </form> 
+                        </table>
+                    </div>
+                    <div class="col-sm">
+                        <h1>All Books</h1>
+                        <ul>
+                            {% for book in all_books %}
+                            <li id="list_of_books">
+                                <p><h4><a href="/user/books/{{ book.id }}">{{ book.title }}</a></h4></p>
+                                <p>(added by {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}})</p>
+                                {% if book in user.liked_books.all %}
+                                <p>this is one of your favorites</p>
+                                {% endif %}
+                                {% if book not in user.liked_books.all %}
+                                <form action="/user/books/{{ book.id }}/favorite" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit">Add to Favorites</button>
+                                </form>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

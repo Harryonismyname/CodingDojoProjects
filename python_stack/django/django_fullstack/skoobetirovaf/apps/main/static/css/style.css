@@ -1,0 +1,40 @@
+#wrapper
+{
+    padding: 10%;
+}
+#Header
+{
+    list-style: none;
+    padding-left: 0%;
+    border-bottom: 2px solid black;
+
+}
+#title
+{
+    padding: 2%;
+    width: 100%;
+}
+#Header li
+{
+    display: inline-block;
+    margin-right: 10%;
+}
+.side
+{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5%;
+}
+td
+{
+    vertical-align: top;
+}
+#add_button
+{
+    text-align: center;
+}
+
+#list_of_books
+{
+    list-style: none;
+}
